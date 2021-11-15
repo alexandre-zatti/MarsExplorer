@@ -4,13 +4,13 @@ import {hoverData} from "../data/hoverData";
 import HoverDataInterface from "../interfaces/hoverDataInterface";
 import Hover from "../components/Hover";
 
-const Hovers = ({ navigation }) : JSX.Element =>{
+const Hovers = ({ navigation } : any) : JSX.Element =>{
     
     const [hovers] = useState<HoverDataInterface[]>(hoverData)
 
     return(
         <View style={styles.container}>
-            <FlatList  contentContainerStyle={styles.list} data={hovers} renderItem={({item}) => (
+            <FlatList contentContainerStyle={styles.list} data={hovers} renderItem={({item}) => (
                 <TouchableOpacity onPress={() => navigation.navigate('Filter', item)}>
                     <Hover name={item.name}/>
                 </TouchableOpacity>

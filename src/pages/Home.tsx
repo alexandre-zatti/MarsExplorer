@@ -1,9 +1,10 @@
 import React from "react"
-import {Button, Image, StyleSheet, View} from "react-native";
+import {Button, Image, StyleSheet, Text, View} from "react-native";
 
-const Home = ({ navigation }) : JSX.Element =>{
+const Home = ({ navigation } : any) : JSX.Element =>{
     return(
         <View style={styles.container}>
+            <Text style={styles.typography}>Mars Explorer</Text>
             <Image source={require('../../assets/mars-gif.gif')}/>
             <Button title={'Explorar'} onPress={() => navigation.navigate('Hovers')}/>
         </View>
@@ -17,6 +18,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    typography:{
+        fontSize: 30
+    }
 });
 
 export default Home

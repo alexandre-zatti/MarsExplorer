@@ -1,11 +1,10 @@
 import React, {useState} from "react";
-import {Button, Image, StyleSheet, Text, View} from "react-native";
+import {Button, StyleSheet, Text, View} from "react-native";
 import {DatePicker, Picker, PickerItem} from 'react-native-woodpicker';
 import HoverCameraDataInterface from "../interfaces/hoverCameraDataInterface";
 import moment from "moment/moment";
 
-
-const Filter = ({ navigation }) : JSX.Element => {
+const Filter = ({ navigation } : any) : JSX.Element => {
 
     const [pickedData, setPickedData] = useState<PickerItem>()
     const [pickedDate, setPickedDate] = useState<Date | null>(new Date(navigation.getParam('max_date')))
@@ -48,7 +47,7 @@ const Filter = ({ navigation }) : JSX.Element => {
             <Button title={"View Gallery"} onPress={() => navigation.navigate('Gallery',
                     {
                         pickedDate: pickedDate ? moment(pickedDate).format('YYYY-MM-DD') : null,
-                        pickedData: pickedData ? pickedData : null,
+                        pickedData: pickedData ? pickedData : {value: ''},
                         name: navigation.getParam('name')
                     }
                 )}
