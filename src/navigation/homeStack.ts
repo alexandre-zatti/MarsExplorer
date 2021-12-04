@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Hovers from "../pages/Hovers";
 import Filter from "../pages/Filter";
 import Gallery from "../pages/Gallery";
+import Favorites from "../pages/Favorites";
 
 const screens = {
     Home: {
@@ -17,6 +18,9 @@ const screens = {
     },
     Gallery: {
         screen: Gallery
+    },
+    Favorites: {
+        screen: Favorites
     }
 }
 

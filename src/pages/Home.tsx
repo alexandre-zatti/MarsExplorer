@@ -7,6 +7,7 @@ const Home = ({ navigation } : any) : JSX.Element =>{
             <Text style={styles.typography}>Mars Explorer</Text>
             <Image source={require('../../assets/mars-gif.gif')}/>
             <Button title={'Explorar'} onPress={() => navigation.navigate('Hovers')}/>
+            <Button title={'Favoritos'} onPress={() => navigation.navigate('Favorites')}/>
         </View>
     )
 }

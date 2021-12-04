@@ -1,8 +1,9 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import {FlatList, StyleSheet, TouchableOpacity, View} from "react-native";
 import {hoverData} from "../data/hoverData";
 import HoverDataInterface from "../interfaces/hoverDataInterface";
 import Hover from "../components/Hover";
+
 
 const Hovers = ({ navigation } : any) : JSX.Element =>{
     

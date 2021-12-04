@@ -4,8 +4,7 @@ import {FontAwesome} from '@expo/vector-icons';
 import Modal from "react-native-modal";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Gallery = ({ navigation } : any) : JSX.Element => {
-    const [fetchUrl] = useState(`https://api.nasa.gov/mars-photos/api/v1/rovers/${navigation.getParam('name')}/photos?api_key=gWTCE5U2htOMEOdnKYFAFQKaYHCMLaBw73dkVFWJ&earth_date=${navigation.getParam('pickedDate')}${navigation.getParam('pickedData').value !== "" ? '&camera='+navigation.getParam('pickedData').value : ''}`)
+const Gallery = () : JSX.Element => {
     const [galleryData, setGalleryData] = useState()
     const [favorites, setFavorites] = useState<Array<string>>([])
     const [openModal, setOpenModal] = useState(false)
@@ -14,20 +13,26 @@ const Gallery = ({ navigation } : any) : JSX.Element => {
     const [isLoading, setIsLoading] = useState(false)
     const [refreshList, setRefreshList] = useState(false)
 
+
     useEffect(() => {
         setIsLoading(true)
-        fetch(fetchUrl).then((response) => {
-            response.json().then((json) => {
-                if(json['photos'].length){
-                    AsyncStorage.getAllKeys().then((keys) => {
-                        setFavorites(keys)
+        AsyncStorage.getAllKeys().then((keys) => {
+            if(keys.length){
+                setFavorites(keys)
+                AsyncStorage.multiGet(keys).then((photos) => {
+                    let newGallery : any[] = []
+                    photos.forEach((photo) => {
+                        newGallery.push(JSON.parse(photo[1] as string))
                     })
-                    setGalleryData(json['photos'])
-                }else{
-                    setEmptyGallery(true)
-                }
+                    setGalleryData(newGallery)
+                    setIsLoading(false)
+                })
+            }else{
+                setGalleryData([])
                 setIsLoading(false)
-            })
+                setEmptyGallery(true)
+            }
+
         })
     },[])
 
@@ -58,16 +63,22 @@ const Gallery = ({ navigation } : any) : JSX.Element => {
                                 name={'star'}
                                 size={28}
                                 onPress={ async () => {
-                                let newArray = favorites
-                                if(favorites.includes(item.id.toString())){
-                                    await AsyncStorage.removeItem(JSON.stringify(item.id))
-                                    newArray = newArray.filter(favItem => favItem != item.id)
-                                }else{
-                                    await AsyncStorage.setItem(JSON.stringify(item.id), JSON.stringify(item))
-                                    newArray.push(item.id.toString())
-                                }
-                                setFavorites(newArray)
-                                setRefreshList(!refreshList)
+                                    let newArray = favorites
+                                    let newGallery = []
+                                    if(favorites.includes(item.id.toString())){
+                                        await AsyncStorage.removeItem(JSON.stringify(item.id))
+                                        newArray = newArray.filter(favItem => favItem != item.id)
+                                        newGallery = galleryData.filter(data => data.id != item.id)
+                                    }else{
+                                        await AsyncStorage.setItem(JSON.stringify(item.id), JSON.stringify(item))
+                                        newArray.push(item.id.toString())
+                                    }
+                                    setFavorites(newArray)
+                                    if(!newGallery.length){
+                                        setEmptyGallery(true)
+                                    }
+                                    setGalleryData(newGallery)
+                                    setRefreshList(!refreshList)
                             }}/>
                         </TouchableOpacity>
                     )
