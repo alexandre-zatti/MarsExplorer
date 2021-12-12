@@ -4,7 +4,6 @@ import { RoverData } from "../data/RoverData";
 import RoverDataInterface from "../interfaces/RoverDataInterface";
 import Rover from "../components/Rover";
 
-
 const Rovers = ({ navigation }: any): JSX.Element => {
 
     const [Rovers] = useState<RoverDataInterface[]>(RoverData)
@@ -19,7 +18,7 @@ const Rovers = ({ navigation }: any): JSX.Element => {
                 </View>
                 <View style={styles.container}>
                     <FlatList numColumns={2} contentContainerStyle={styles.list} data={Rovers} renderItem={({ item }) => (
-                        <TouchableOpacity onPress={() => navigation.navigate('Filter', item)}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Rovers', {screen:"Filter", item})}>
                             <Rover name={item.name} image={item.image} />
                         </TouchableOpacity>
                     )} />

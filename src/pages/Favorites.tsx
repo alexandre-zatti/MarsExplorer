@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import Modal from "react-native-modal";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Gallery = (): JSX.Element => {
+const Favorites = (): JSX.Element => {
     const [galleryData, setGalleryData] = useState()
     const [favorites, setFavorites] = useState<Array<string>>([])
     const [openModal, setOpenModal] = useState(false)
@@ -167,4 +167,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Gallery
+export default Favorites
