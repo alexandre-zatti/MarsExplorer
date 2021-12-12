@@ -6,10 +6,9 @@ import Filter from "../pages/Filter";
 import Gallery from "../pages/Gallery";
 import Favorites from "../pages/Favorites";
 
-
 const screens = {
     Home: {
-        screen: Home,
+        screen: Home
     },
     Rovers: {
         screen: Rovers
@@ -22,11 +21,14 @@ const screens = {
     },
     Favorites: {
         screen: Favorites
-    }
+    },
 };
 
 
-const HomeStack = createStackNavigator(screens);
+const HomeStack = createStackNavigator(screens)
 
 
-export default createAppContainer(HomeStack);
+
+
+
+export default createAppContainer(HomeStack)

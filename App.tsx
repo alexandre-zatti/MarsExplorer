@@ -1,9 +1,10 @@
 import React from 'react';
 import Navigator from "./src/navigation/homeStack";
 
-const App = () : JSX.Element => {
+
+const App = (): JSX.Element => {
   return (
-    <Navigator/>
+    <Navigator />
   );
 }
 
