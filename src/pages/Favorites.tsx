@@ -3,8 +3,9 @@ import { ActivityIndicator, FlatList, Image, StyleSheet, Text, TouchableOpacity,
 import { FontAwesome } from '@expo/vector-icons';
 import Modal from "react-native-modal";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import BackNavigation from "../components/BackNavigation";
 
-const Gallery = (): JSX.Element => {
+const Gallery = ({ navigation }: any): JSX.Element => {
     const [galleryData, setGalleryData] = useState()
     const [favorites, setFavorites] = useState<Array<string>>([])
     const [openModal, setOpenModal] = useState(false)
@@ -37,8 +38,8 @@ const Gallery = (): JSX.Element => {
     }, [])
 
     return (
-
         <View style={styles.container}>
+            <BackNavigation navigation={navigation}/>
             <View style={styles.titleContainer}>
                 <Text style={styles.labels}>My</Text>
                 <Text style={styles.title}>Favorites</Text>
@@ -55,7 +56,7 @@ const Gallery = (): JSX.Element => {
                 </Modal>
                 {isLoading ? <ActivityIndicator size="large" style={styles.loader} /> : null}
 
-                {emptyGallery ? <View><Text>Nenhuma foto encontrada!</Text></View> :
+                {emptyGallery ? <View><Text style={{color:"#DDDDDD", fontSize: 20 }}>Nenhuma foto encontrada!</Text></View> :
                     <FlatList
                         contentContainerStyle={styles.list}
                         numColumns={2}

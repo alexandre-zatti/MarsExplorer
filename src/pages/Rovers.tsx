@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, TouchableOpacity, View, ImageBackground, Text } f
 import { RoverData } from "../data/RoverData";
 import RoverDataInterface from "../interfaces/RoverDataInterface";
 import Rover from "../components/Rover";
+import BackNavigation from "../components/BackNavigation";
 
 
 const Rovers = ({ navigation }: any): JSX.Element => {
@@ -10,9 +11,9 @@ const Rovers = ({ navigation }: any): JSX.Element => {
     const [Rovers] = useState<RoverDataInterface[]>(RoverData)
 
     return (
-
         <View style={styles.wrapper}>
             <ImageBackground source={require('../../assets/rovers-background.png')} resizeMode="cover" style={styles.backImage}>
+                <BackNavigation navigation={navigation}/>
                 <View style={styles.titleContainer}>
                     <Text style={styles.labels}>Explore</Text>
                     <Text style={styles.title}>Rovers</Text>

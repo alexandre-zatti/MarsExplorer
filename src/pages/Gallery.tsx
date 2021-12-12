@@ -3,6 +3,7 @@ import { ActivityIndicator, FlatList, Image, StyleSheet, Text, TouchableOpacity,
 import { FontAwesome } from '@expo/vector-icons';
 import Modal from "react-native-modal";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import BackNavigation from "../components/BackNavigation";
 
 const Gallery = ({ navigation }: any): JSX.Element => {
     const [fetchUrl] = useState(`https://api.nasa.gov/mars-photos/api/v1/rovers/${navigation.getParam('name')}/photos?api_key=gWTCE5U2htOMEOdnKYFAFQKaYHCMLaBw73dkVFWJ&earth_date=${navigation.getParam('pickedDate')}${navigation.getParam('pickedData').value !== "" ? '&camera=' + navigation.getParam('pickedData').value : ''}`)
@@ -33,6 +34,7 @@ const Gallery = ({ navigation }: any): JSX.Element => {
 
     return (
         <View style={styles.container}>
+            <BackNavigation navigation={navigation}/>
             <View style={styles.titleContainer}>
                 <Text style={styles.labels}>Gallery</Text>
                 <Text style={styles.title}>{navigation.getParam('name')}</Text>

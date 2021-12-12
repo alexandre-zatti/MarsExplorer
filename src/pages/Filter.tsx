@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from "react
 import { DatePicker, Picker, PickerItem } from 'react-native-woodpicker';
 import RoverCameraDataInterface from "../interfaces/RoverCameraDataInterface";
 import moment from "moment/moment";
+import BackNavigation from "../components/BackNavigation";
 
 const Filter = ({ navigation }: any): JSX.Element => {
 
@@ -24,6 +25,7 @@ const Filter = ({ navigation }: any): JSX.Element => {
     return (
         <View style={styles.wrapper}>
             <ImageBackground source={require('../../assets/filter-background.png')} resizeMode="cover" style={styles.backImage}>
+                <BackNavigation navigation={navigation}/>
                 <View style={styles.titleContainer}>
                     <Text style={styles.labels}>Rover</Text>
                     <Text style={styles.title}>{navigation.getParam('name')}</Text>

@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
         fontSize: 40
     },
     container: {
+        marginTop: 170,
         justifyContent: 'center',
         alignItems: "center",
         padding: 44,

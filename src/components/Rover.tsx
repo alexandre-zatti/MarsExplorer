@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
         margin: 10,
         height: 170,
         width: 170,
-        backgroundColor: '#ffffff',
         justifyContent: "flex-end",
         alignItems: "center",
         borderRadius: 20,
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
     typography: {
         fontSize: 25,
         fontWeight: "bold",
-        color: '#cf4c24'
+        color: '#DDDDDD'
     }
 });
 
