@@ -37,10 +37,12 @@ const styles = StyleSheet.create({
         flex: 1
     },
     labels: {
+        fontFamily: "ChakraPetch_300Light",
         color: "#DDDDDD",
         fontSize: 20,
     },
     textItens: {
+        fontFamily: "ChakraPetch_700Bold",
         color: "#DDDDDD",
         fontSize: 40
     },

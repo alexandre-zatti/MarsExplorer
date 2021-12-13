@@ -10,6 +10,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/chakra-petch": "^0.2.0",
+    "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/datetimepicker": "^3.5.2",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-picker/picker": "^2.1.0",
@@ -29,7 +31,7 @@
     "react-native-woodpicker": "^0.3.15",
     "react-navigation": "^4.4.4",
     "react-navigation-stack": "^2.10.4",
-    "@react-native-async-storage/async-storage": "~1.15.0"
+    "expo-app-loading": "~1.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
