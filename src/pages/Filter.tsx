@@ -25,7 +25,7 @@ const Filter = ({ navigation }: any): JSX.Element => {
     return (
         <View style={styles.wrapper}>
             <ImageBackground source={require('../../assets/filter-background.png')} resizeMode="cover" style={styles.backImage}>
-                <BackNavigation navigation={navigation}/>
+                <BackNavigation navigation={navigation} />
                 <View style={styles.titleContainer}>
                     <Text style={styles.labels}>Rover</Text>
                     <Text style={styles.title}>{navigation.getParam('name')}</Text>
@@ -93,15 +93,17 @@ const styles = StyleSheet.create({
         flex: 1
     },
     titleContainer: {
-        marginTop: 25,
+        marginTop: 10,
         marginLeft: 35,
-        marginBottom: 10
     },
     title: {
+        fontFamily: "ChakraPetch_700Bold",
+        marginTop: -20,
         color: "#fff",
-        fontSize: 40
+        fontSize: 50
     },
     labels: {
+        fontFamily: "ChakraPetch_300Light",
         color: "#fff",
         fontSize: 20,
     },
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
         color: '#C84921',
         fontSize: 20,
         fontWeight: "bold",
-        marginTop: 15,
+        marginTop: 10,
     },
     picker: {
         height: 40,
@@ -121,12 +123,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
     },
-
-    typography: {
-        marginBottom: 10,
-        fontSize: 30,
-        color: '#161616'
-    },
     button: {
         backgroundColor: "#C84921",
         width: 200,
@@ -137,6 +133,7 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     textIten: {
+        fontFamily: "ChakraPetch_700Bold",
         color: "#fff",
         fontSize: 20,
         fontWeight: "bold"

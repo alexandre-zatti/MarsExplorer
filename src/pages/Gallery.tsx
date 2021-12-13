@@ -34,7 +34,7 @@ const Gallery = ({ navigation }: any): JSX.Element => {
 
     return (
         <View style={styles.container}>
-            <BackNavigation navigation={navigation}/>
+            <BackNavigation navigation={navigation} />
             <View style={styles.titleContainer}>
                 <Text style={styles.labels}>Gallery</Text>
                 <Text style={styles.title}>{navigation.getParam('name')}</Text>
@@ -102,10 +102,13 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     title: {
+        fontFamily: "ChakraPetch_700Bold",
         color: "#DDDDDD",
-        fontSize: 40
+        fontSize: 50,
+        marginTop: -20,
     },
     labels: {
+        fontFamily: "ChakraPetch_300Light",
         color: "#DDDDDD",
         fontSize: 20,
     },

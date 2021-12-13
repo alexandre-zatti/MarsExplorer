@@ -13,7 +13,7 @@ const Rovers = ({ navigation }: any): JSX.Element => {
     return (
         <View style={styles.wrapper}>
             <ImageBackground source={require('../../assets/rovers-background.png')} resizeMode="cover" style={styles.backImage}>
-                <BackNavigation navigation={navigation}/>
+                <BackNavigation navigation={navigation} />
                 <View style={styles.titleContainer}>
                     <Text style={styles.labels}>Explore</Text>
                     <Text style={styles.title}>Rovers</Text>
@@ -53,10 +53,13 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     title: {
+        fontFamily: "ChakraPetch_700Bold",
         color: "#DDDDDD",
-        fontSize: 40
+        fontSize: 40,
+        marginTop: -20,
     },
     labels: {
+        fontFamily: "ChakraPetch_300Light",
         color: "#DDDDDD",
         fontSize: 20,
     },

@@ -39,7 +39,7 @@ const Gallery = ({ navigation }: any): JSX.Element => {
 
     return (
         <View style={styles.container}>
-            <BackNavigation navigation={navigation}/>
+            <BackNavigation navigation={navigation} />
             <View style={styles.titleContainer}>
                 <Text style={styles.labels}>My</Text>
                 <Text style={styles.title}>Favorites</Text>
@@ -56,7 +56,7 @@ const Gallery = ({ navigation }: any): JSX.Element => {
                 </Modal>
                 {isLoading ? <ActivityIndicator size="large" style={styles.loader} /> : null}
 
-                {emptyGallery ? <View><Text style={{color:"#DDDDDD", fontSize: 20 }}>Nenhuma foto encontrada!</Text></View> :
+                {emptyGallery ? <View><Text style={{ color: "#DDDDDD", fontSize: 20 }}>Nenhuma foto encontrada!</Text></View> :
                     <FlatList
                         contentContainerStyle={styles.list}
                         numColumns={2}
@@ -112,10 +112,13 @@ const styles = StyleSheet.create({
         marginBottom: 5
     },
     title: {
+        fontFamily: "ChakraPetch_700Bold",
         color: "#DDDDDD",
-        fontSize: 40
+        fontSize: 50,
+        marginTop: -20,
     },
     labels: {
+        fontFamily: "ChakraPetch_300Light",
         color: "#DDDDDD",
         fontSize: 20,
     },

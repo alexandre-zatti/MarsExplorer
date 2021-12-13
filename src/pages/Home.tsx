@@ -13,7 +13,7 @@ const Home = ({ navigation }: any): JSX.Element => {
 
                     <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Rovers')} >
                         <Text style={styles.labels}>Start</Text>
-                        <Text style={styles.textItens}>Explore</Text>
+                        <Text style={styles.textItens}>Explorer</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Favorites')} >
